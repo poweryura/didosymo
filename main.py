@@ -130,7 +130,7 @@ def dns_resolve():
         try:
             ips.append(socket.gethostbyname(site))
         except:
-            print(f"Could not resolve: {site} ")
+            print(f"Could not resolve:  {site} ")
 
     port = 1
     sent = 0
