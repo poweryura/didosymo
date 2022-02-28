@@ -58,6 +58,7 @@ sites = [
     "rmk-group.ru",
     "www.tmk-group.ru",
     "ya.ru",
+    "omk.ru",
     "www.polymetalinternational.com",
     "www.uralkali.com",
     "www.eurosib.ru",
