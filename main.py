@@ -155,7 +155,7 @@ dns_resolve()
 
 process_list = []
 for i in range(10):
-    packet_size = random.randint(1000, 1350)
+    packet_size = random.randint(10, 20)
     bytes = random._urandom(packet_size)
 
     p = multiprocessing.Process(target=send_packets)
