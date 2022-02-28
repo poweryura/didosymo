@@ -14,6 +14,7 @@ port_value = random.choice(used_random_ports)
 #     sites = f.readlines()
 
 sites = [
+    "ticketbus.by",
     "lenta.ru",
     "ria.ru",
     "www.rbc.ru",
