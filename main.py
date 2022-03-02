@@ -111,7 +111,48 @@ sites = [
     "minsknews.by",
     "zarya.by",
     "grodnonews.by"
-
+    "lenta.ru",
+    "ria.ru",
+    "www.rbc.ru",
+    "www.rt.com",
+    "smotrim.ru",
+    "tass.ru",
+    "tvzvezda.ru",
+    "www.vesti.ru",
+    "er.ru",
+    "vgtrk.ru",
+    "www.interfax.ru",
+    "iz.ru",
+    "vz.ru",
+    "sputniknews.ru",
+    "pikabu.ru
+    "www.kommersant.ru",
+    "lukoil.ru",
+    "www.nornickel.com"
+    "www.evraz.com",
+    "nlmk.com",
+    "www.sibur.ru"
+    "www.metalloinvest.com"
+    "rmk-group.ru",
+    "www.tmk-group.ru",
+    "ya.ru",
+    "omk.ru",
+    "www.uralkali.com"
+    "www.mos.ru
+    "rkn.gov.ru",
+    "cloud.rkn.gov.ru",
+    "stroi.gov.ru",
+    "belta.by",
+    "sputnik.by"
+    "belmarket.by",
+    "Belnovisti.by",
+    "yandex.by",
+    "iecp.ru/ep/ep-verification"
+    "iecp.ru/ep/uc-list"
+    "uc-osnovanie.ru"
+    "www.roseltorg.ru"
+    "www.cit-ufa.ru"
+    "cfmc.ru"
 ]
 ips = []
 print("Targeted sites: \n")
