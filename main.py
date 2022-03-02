@@ -125,7 +125,7 @@ sites = [
     "iz.ru",
     "vz.ru",
     "sputniknews.ru",
-    "pikabu.ru
+    "pikabu.ru"
     "www.kommersant.ru",
     "lukoil.ru",
     "www.nornickel.com"
@@ -138,7 +138,7 @@ sites = [
     "ya.ru",
     "omk.ru",
     "www.uralkali.com"
-    "www.mos.ru
+    "www.mos.ru"
     "rkn.gov.ru",
     "cloud.rkn.gov.ru",
     "stroi.gov.ru",
@@ -147,8 +147,8 @@ sites = [
     "belmarket.by",
     "Belnovisti.by",
     "yandex.by",
-    "iecp.ru/ep/ep-verification"
-    "iecp.ru/ep/uc-list"
+    "iecp.ru"
+    "iecp.ru"
     "uc-osnovanie.ru"
     "www.roseltorg.ru"
     "www.cit-ufa.ru"
