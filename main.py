@@ -6,7 +6,7 @@ import multiprocessing
 ##############
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-used_random_ports = [80, 443, 21, 22, 110, 995, 143, 993, 26, 587, 3306, 2082, 2083, 2086, 2087, 2095, 2096, 2077, 2078]
+used_random_ports = [80, 443, 80, 443 ,80, 443, 21, 22, 80, 443, 80, 443, 80, 443, 80, 443,110, 995, 143, 993, 26, 587, 3306, 2082, 2083, 2086, 2087, 2095, 2096, 2077, 2078]
 
 port_value = random.choice(used_random_ports)
 #############
