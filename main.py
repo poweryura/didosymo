@@ -153,6 +153,18 @@ sites = [
     "www.roseltorg.ru"
     "www.cit-ufa.ru"
     "cfmc.ru"
+    "Transneft.ru"
+    "Tektorg.ru"
+    "Rosneft.com"
+    "Lukoil.com"
+    "Gazprom.ru"
+    "B2b.sibur.ru"
+    "Onlinecontract.ru"
+    "Eurochemgroup.com"
+    "Uralchem.com"
+    "Tatneft.ru"
+    "Nlmk.com"
+    "Acron.ru"
 ]
 ips = []
 print("Targeted sites: \n")
