@@ -1,6 +1,7 @@
-"https://www.top-shop.ru/",
-"https://imho-shop.ru/",
-"https://www.dns-shop.ru/",
+"http://crisisua.tilda.ws"
+"https://www.top-shop.ru",
+"https://imho-shop.ru",
+"https://www.dns-shop.ru",
 "grey-shop.ru",
 "smotrim.ru",
 "ticketbus.by",
